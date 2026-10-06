@@ -5,7 +5,7 @@
 @import "nativewind/theme";
 
 @utility top-nav {
-  @apply flex-row justify-between items-center mb-8;
+  @apply flex-row justify-between items-center mb-8 pl-8 pr-8;
 }
 
 @utility search-bar {

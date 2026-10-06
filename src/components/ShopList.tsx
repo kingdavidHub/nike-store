@@ -1,41 +1,46 @@
-import { ScrollView, View, Text, Image } from 'react-native';
+import { ScrollView, View, Text, Image, Pressable } from 'react-native';
+import { Link } from 'expo-router';
 import { clsx } from 'clsx';
 import { getHeight, formatCurrency } from '../../lib/utils';
 import { STORE } from '../../constants/data';
 import { checkMarkIcon } from '@/assets/icon';
-import { Link } from 'expo-router';
+import { useState } from 'react';
 
 const TALL = 235;
 const SHORT = 205;
 
-
-
 export default function ShopList() {
+  const [favorite, setFavorite] = useState([]);
   return (
-    <ScrollView className="flex-1" contentContainerClassName="shoe-grid">
+    <ScrollView className="flex-1 pl-8 pr-8" contentContainerClassName="shoe-grid">
       {STORE.map((item, index) => (
-        <View
+        <Link
           key={item.id}
-          className={clsx(
-            'shoe-card',
-            getHeight(index, TALL, SHORT) === TALL ? 'h-[265px]' : 'h-[235px]'
-          )}
-          style={{ backgroundColor: item.card_color }}
+          href={{ pathname: '/store-items/[id]', params: { id: item.id } }}
+          asChild
         >
-            <View className='flex-row items-top justify-between'>
-              <View className='flex-col items-start'>
-                <Text className='text-2xl font-semibold'>{item.shoe_color}</Text>
-                <Text className='text-md font-light'>{item.shoe_pair}</Text>
+          <Pressable
+            className={clsx(
+              'shoe-card',
+              getHeight(index, TALL, SHORT) === TALL ? 'h-[265px]' : 'h-[235px]'
+            )}
+            style={{ backgroundColor: item.card_color }}
+          >
+            <View className="flex-row items-top justify-between">
+              <View className="flex-col items-start">
+                <Text className="text-2xl font-semibold">{item.shoe_color}</Text>
+                <Text className="text-md font-light">{item.shoe_pair}</Text>
               </View>
               <Image source={checkMarkIcon} />
             </View>
-            <View className='flex-1 items-center justify-center'>
+            <View className="flex-1 items-center justify-center">
               <Image source={item.shoe_image} />
             </View>
-            <View className='flex items-end'>
+            <View className="flex items-end">
               <Text>{formatCurrency(item.shoe_price)}</Text>
             </View>
-        </View>
+          </Pressable>
+        </Link>
       ))}
     </ScrollView>
   );
