@@ -11,14 +11,14 @@ export default function App() {
   const [search, setSearch] = useState<string>('');
   return (
     <SafeAreaView className="flex-1 pl-8 pr-8">
-      <View className="flex-row justify-between items-center mb-8">
+      <View className="top-nav">
         <ChevronLeft />
         <Menu />
       </View>
       <Text className="text-[27px] semi mb-8">Nike shoe store</Text>
 
       <View className="relative">
-        <View className="flex-row bg-[#F8F6F6] rounded-2xl p-4 items-center">
+        <View className="search-bar">
           <Search color="#818181" />
           <TextInput
             className="flex-1 px-2 text-xl"
@@ -34,7 +34,7 @@ export default function App() {
           pointerEvents="none"
           intensity={35}
           tint="default"
-          className="absolute -bottom-12 left-0 right-0 h-12"
+          className="search-fade"
         />
       </View>
 
