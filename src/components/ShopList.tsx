@@ -1,15 +1,8 @@
 import { ScrollView, View, Text, Image } from 'react-native';
 import { clsx } from 'clsx';
-import { getHeight } from '../../lib/utils';
+import { getHeight, formatCurrency } from '../../lib/utils';
 import { STORE } from '../../constants/data';
 import { checkMarkIcon } from '@/assets/icon';
-
-type Item = { id: string; label: string };
-
-// const DATA: Item[] = Array.from({ length: 4 }, (_, i) => ({
-//   id: String(i),
-//   label: `Item ${i}`,
-// }));
 
 const TALL = 235;
 const SHORT = 205;
@@ -35,8 +28,11 @@ export default function ShopList() {
             </View>
             <Image source={checkMarkIcon} />
           </View>
-          <View className={clsx(item.shoe_image_correction ? 'absolute left-1 bottom-3' : null)}>
+          <View className='flex-1 items-center justify-center'>
             <Image source={item.shoe_image} />
+          </View>
+          <View className='flex items-end'>
+            <Text>{formatCurrency(item.shoe_price)}</Text>
           </View>
         </View>
       ))}
