@@ -30,7 +30,7 @@ const StoreItem = () => {
     )
   }
 
-
+  
 
   return (
     <SafeAreaView
@@ -46,7 +46,7 @@ const StoreItem = () => {
           <Image source={item?.product.product_image} />
         </View>
         <View
-          className="detail-panel"
+          className="flex-1 bg-white rounded-t-4xl p-8 flex-col gap-15"
           style={{ paddingBottom: insets.bottom + 16 }}
         >
           <View className='flex-col gap-2'>
@@ -56,15 +56,15 @@ const StoreItem = () => {
               <Text className='text-xl font-semibold'>{formatCurrency(item.shoe_price)}</Text>
             </View>
           </View>
-          <View className='detail-section'>
+          <View className='flex-col gap-6'>
             <Text className='text-2xl'>Product Description</Text>
             <Text>{item.product.product_description}</Text>
           </View>
 
-          <View className='detail-actions'>
+          <View className='mt-10 flex-row justify-between items-center'>
             <TouchableOpacity
               onPress={() => item && toggleFavorite(item.id)}
-              className='outline-button'>
+              className='border-2 p-2 rounded-xl self-start border-[#0098EE] flex items-center'>
               <Heart
                 fill={isFavorite ? '#08A6FF' : 'none'}
                 stroke={isFavorite ? '#08A6FF' : '#08A6FF'}
@@ -74,7 +74,7 @@ const StoreItem = () => {
 
             <TouchableOpacity
               onPress={() => item && addToCart(item.id)}
-              className='detail-button'>
+              className='rounded-xl bg-[#0098EE] px-8 py-3 '>
               <Text className='text-white text-xl'>Add To Cart</Text>
             </TouchableOpacity>
           </View>

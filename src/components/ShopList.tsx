@@ -4,6 +4,7 @@ import { clsx } from 'clsx';
 import { getHeight, formatCurrency } from '../../lib/utils';
 import { STORE } from '../../constants/data';
 import { checkMarkIcon } from '@/assets/icon';
+import { useState } from 'react';
 
 const TALL = 235;
 const SHORT = 205;
@@ -25,10 +26,10 @@ export default function ShopList() {
             )}
             style={{ backgroundColor: item.card_color }}
           >
-            <View className="flex-row items-start justify-between">
+            <View className="flex-row items-top justify-between">
               <View className="flex-col items-start">
                 <Text className="text-2xl font-semibold">{item.shoe_color}</Text>
-                <Text className="text-base font-light">{item.shoe_pair}</Text>
+                <Text className="text-md font-light">{item.shoe_pair}</Text>
               </View>
               <Image source={checkMarkIcon} />
             </View>

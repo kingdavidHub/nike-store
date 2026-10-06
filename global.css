@@ -4,22 +4,12 @@
 
 @import "nativewind/theme";
 
-@theme {
-  --color-surface-muted: #f8f6f6;
-  --color-text-muted: #818181;
-  --color-brand: #0098ee;
-}
-
 @utility top-nav {
   @apply flex-row justify-between items-center mb-8 pl-8 pr-8;
 }
 
-@utility page-title {
-  @apply text-[27px] font-semibold mb-8 pl-8 pr-8;
-}
-
 @utility search-bar {
-  @apply flex-row items-center bg-surface-muted rounded-2xl p-4 shadow-2xl;
+  @apply flex-row items-center bg-[#F8F6F6] rounded-2xl p-4 shadow-2xl;
 }
 
 @utility search-fade {
@@ -32,72 +22,4 @@
 
 @utility shoe-card {
   @apply relative flex-col w-[48%] rounded-3xl p-4 gap-2;
-}
-
-@utility empty-state {
-  @apply flex-1 items-center justify-center px-8 gap-4;
-}
-
-@utility empty-state-icon {
-  @apply w-20 h-20 rounded-full bg-surface-muted items-center justify-center;
-}
-
-@utility muted-copy {
-  @apply text-base font-light text-text-muted text-center;
-}
-
-@utility list-content {
-  @apply pl-8 pr-8 gap-4;
-}
-
-@utility list-row {
-  @apply flex-row items-center rounded-3xl p-4 gap-4;
-}
-
-@utility list-link {
-  @apply flex-row items-center flex-1 gap-4;
-}
-
-@utility item-thumbnail {
-  @apply w-20 h-16;
-}
-
-@utility item-info {
-  @apply flex-col items-start flex-1 gap-1;
-}
-
-@utility icon-action {
-  @apply w-11 h-11 rounded-full bg-white items-center justify-center;
-}
-
-@utility summary-panel {
-  @apply bg-white rounded-t-4xl p-8 flex-col gap-6;
-}
-
-@utility summary-row {
-  @apply flex-row justify-between items-center;
-}
-
-@utility primary-button {
-  @apply rounded-xl bg-brand py-4 items-center;
-}
-
-@utility detail-panel {
-  @apply flex-1 bg-white rounded-t-4xl p-8 flex-col gap-15;
-}
-
-@utility detail-section {
-  @apply flex-col gap-6;
-}
-
-@utility detail-actions {
-  @apply mt-10 flex-row justify-between items-center;
-}
-
-@utility outline-button {
-  @apply border-2 p-2 rounded-xl self-start border-brand items-center;
-}
-
-@utility detail-button {
-  @apply rounded-xl bg-brand px-8 py-3;
 }
