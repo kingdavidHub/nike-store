@@ -1,7 +1,7 @@
 import { Text, TextInput, View } from "react-native";
 import { styled } from "nativewind";
 import { SafeAreaView as RNSafeAreaView } from "react-native-safe-area-context";
-import { ChevronLeft, Menu, Search } from "lucide-react-native";
+import { Search } from "lucide-react-native";
 import { useState } from "react";
 import ShopList from "@/components/ShopList";
 import { BlurView } from "expo-blur";
@@ -13,7 +13,7 @@ export default function App() {
   return (
     <SafeAreaView className="flex-1">
       <NavBar />
-      <Text className="text-[27px] semi mb-8 pl-8 pr-8">Nike shoe store</Text>
+      <Text className="page-title">Nike shoe store</Text>
 
       <View className="relative pl-8 pr-8">
         <View className="search-bar">
