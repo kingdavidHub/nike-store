@@ -9,6 +9,7 @@ import NavBar from '@/components/NavBar';
 import { STORE } from '../../../constants/data';
 import { formatCurrency } from '../../../lib/utils';
 import { Heart } from 'lucide-react-native';
+import { useStore } from '../../../store/useStore';
 
 const SafeAreaView = styled(RNSafeAreaView);
 
@@ -17,11 +18,19 @@ const StoreItem = () => {
   const item = STORE.find((item) => item.id === id);
   const insets = useSafeAreaInsets();
 
+  const favorites = useStore((s) => s.favorites);
+  const toggleFavorite = useStore((s) => s.toggleFavorite);
+  const addToCart = useStore((s) => s.addToCart);
+
+  const isFavorite = item ? favorites.includes(item.id) : false;
+
   if (!item) {
     return (
       <Text>No Item Found</Text>
     )
   }
+
+  
 
   return (
     <SafeAreaView
@@ -53,11 +62,19 @@ const StoreItem = () => {
           </View>
 
           <View className='mt-10 flex-row justify-between items-center'>
-            <TouchableOpacity className='border-2 p-2 rounded-xl self-start border-[#0098EE] flex items-center'>
-              <Heart fill="#08A6FF" stroke="0" />
+            <TouchableOpacity
+              onPress={() => item && toggleFavorite(item.id)}
+              className='border-2 p-2 rounded-xl self-start border-[#0098EE] flex items-center'>
+              <Heart
+                fill={isFavorite ? '#08A6FF' : 'none'}
+                stroke={isFavorite ? '#08A6FF' : '#08A6FF'}
+              />
+
             </TouchableOpacity>
 
-            <TouchableOpacity className='rounded-xl bg-[#0098EE] px-8 py-3 '>
+            <TouchableOpacity
+              onPress={() => item && addToCart(item.id)}
+              className='rounded-xl bg-[#0098EE] px-8 py-3 '>
               <Text className='text-white text-xl'>Add To Cart</Text>
             </TouchableOpacity>
           </View>

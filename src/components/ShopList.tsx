@@ -10,7 +10,7 @@ const TALL = 235;
 const SHORT = 205;
 
 export default function ShopList() {
-  const [favorite, setFavorite] = useState([]);
+
   return (
     <ScrollView className="flex-1 pl-8 pr-8" contentContainerClassName="shoe-grid">
       {STORE.map((item, index) => (
