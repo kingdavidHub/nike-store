@@ -28,12 +28,12 @@ export default function App() {
           />
         </View>
 
-        <BlurView
+        {/* <BlurView
           pointerEvents="none"
           intensity={35}
           tint="default"
           className="search-fade"
-        />
+        /> */}
       </View>
 
       <ShopList />
